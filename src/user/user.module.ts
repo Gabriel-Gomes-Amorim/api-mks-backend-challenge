@@ -5,6 +5,8 @@ import TypeOrmUserRepository from './repository/typeorm/typeorm.user.repository'
 import { UserRepository } from './repository/user.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
+import { RedisService } from 'src/database/redis/redis';
+import { RedisUserRepository } from './repository/redis/redis.user.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
@@ -12,7 +14,9 @@ import { User } from './entities/user.entity';
   providers: [
     UserService,
     TypeOrmUserRepository,
-    { provide: UserRepository, useClass: TypeOrmUserRepository },
+    RedisService,
+    RedisUserRepository,
+    { provide: UserRepository, useClass: RedisUserRepository },
   ],
   exports: [UserService, UserRepository],
 })

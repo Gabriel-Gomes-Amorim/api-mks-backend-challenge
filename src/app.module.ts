@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from './database/database.providers';
 import { UserModule } from './user/user.module';
+import { RedisService } from './database/redis/redis';
 
 @Module({
   imports: [
@@ -12,5 +13,6 @@ import { UserModule } from './user/user.module';
     TypeOrmModule.forRoot(dataSourceOptions),
     UserModule,
   ],
+  providers: [RedisService],
 })
 export class AppModule {}
