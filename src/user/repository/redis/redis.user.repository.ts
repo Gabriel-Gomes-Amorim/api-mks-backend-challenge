@@ -27,4 +27,70 @@ export class RedisUserRepository implements Partial<UserRepository> {
 
     return JSON.parse(cachedUsers);
   }
+
+  async findByCpf(cpf: string): Promise<User | null> {
+    const cachedUser: string = await this.redis.get(`user:${cpf}`);
+
+    if (!cachedUser) {
+      const user: User | null = await this.typeormUserRepository.findByCpf(cpf);
+
+      if (user) {
+        await this.redis.set(`user:${cpf}`, JSON.stringify(user), 'EX', 15);
+        console.log('\x1b[33m%s\x1b[0m', 'User found in database');
+      } else {
+        console.log('\x1b[33m%s\x1b[0m', 'User not found in database');
+      }
+
+      return user;
+    }
+    console.log('\x1b[36m%s\x1b[0m', 'User found in cache');
+
+    return JSON.parse(cachedUser);
+  }
+
+  async findByEmail(email: string): Promise<User | null> {
+    const cachedUser: string = await this.redis.get(`user:email:${email}`);
+
+    if (!cachedUser) {
+      const user: User | null =
+        await this.typeormUserRepository.findByEmail(email);
+
+      if (user) {
+        await this.redis.set(
+          `user:email:${email}`,
+          JSON.stringify(user),
+          'EX',
+          15,
+        );
+        console.log('\x1b[33m%s\x1b[0m', 'User found in database');
+      } else {
+        console.log('\x1b[33m%s\x1b[0m', 'User not found in database');
+      }
+
+      return user;
+    }
+    console.log('\x1b[36m%s\x1b[0m', 'User found in cache');
+
+    return JSON.parse(cachedUser);
+  }
+
+  async findById(id: string): Promise<User | null> {
+    const cachedUser: string = await this.redis.get(`user:id:${id}`);
+
+    if (!cachedUser) {
+      const user: User | null = await this.typeormUserRepository.findById(id);
+
+      if (user) {
+        await this.redis.set(`user:id:${id}`, JSON.stringify(user), 'EX', 15);
+        console.log('\x1b[33m%s\x1b[0m', 'User found in database');
+      } else {
+        console.log('\x1b[33m%s\x1b[0m', 'User not found in database');
+      }
+
+      return user;
+    }
+    console.log('\x1b[36m%s\x1b[0m', 'User found in cache');
+
+    return JSON.parse(cachedUser);
+  }
 }
