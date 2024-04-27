@@ -14,8 +14,8 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 import { Request, Response } from 'express';
 import { MovieService } from './movie.service';
-import { CreateMovieDto } from './dto/create-movie.dto';
 import { Movie } from './entities/movie.entity';
+import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
 
 @ApiTags('Movie')

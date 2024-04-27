@@ -1,11 +1,11 @@
+import { JwtService } from '@nestjs/jwt';
 import { Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { UserPayload } from './models/UserPayloads';
-import { JwtService } from '@nestjs/jwt';
 import { UserToken } from './models/UserToken';
-import { UserService } from 'src/user/user.service';
-import { User } from 'src/user/entities/user.entity';
-import { EmailOrPasswordInvalidException } from 'src/utils/errors/email-password-incorrect';
+import { UserService } from '../user/user.service';
+import { UserPayload } from './models/UserPayloads';
+import { User } from '../user/entities/user.entity';
+import { EmailOrPasswordInvalidException } from '../utils/errors/email-password-incorrect';
 
 @Injectable()
 export class AuthService {

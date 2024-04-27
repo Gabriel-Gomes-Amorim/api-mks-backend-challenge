@@ -1,8 +1,8 @@
-import { FindOptionsSelect, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { IdNotFoundException } from 'src/utils/errors/id-not-found';
-import { Movie } from 'src/movie/entities/movie.entity';
+import { FindOptionsSelect, Repository } from 'typeorm';
+import { Movie } from '../../entities/movie.entity';
 import { MovieRepository } from '../movie.repository';
+import { IdNotFoundException } from '../../../utils/errors/id-not-found';
 
 export const selectFieldsMovie: FindOptionsSelect<Movie> = {
   id: true,

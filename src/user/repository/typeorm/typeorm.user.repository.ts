@@ -1,8 +1,8 @@
-import { FindOptionsSelect, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/user/entities/user.entity';
-import { IdNotFoundException } from 'src/utils/errors/id-not-found';
+import { FindOptionsSelect, Repository } from 'typeorm';
+import { User } from '../../entities/user.entity';
 import { UserRepository } from '../user.repository';
+import { IdNotFoundException } from '../../../utils/errors/id-not-found';
 
 export const selectFieldsUser: FindOptionsSelect<User> = {
   id: true,

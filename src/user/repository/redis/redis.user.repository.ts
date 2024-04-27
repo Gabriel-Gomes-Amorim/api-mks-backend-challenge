@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
+import { User } from '../../entities/user.entity';
 import { UserRepository } from '../user.repository';
-import { RedisService } from 'src/database/redis/redis';
+import { RedisService } from '../../../database/redis/redis';
 import TypeOrmUserRepository from '../typeorm/typeorm.user.repository';
-import { User } from 'src/user/entities/user.entity';
 
 @Injectable()
 export class RedisUserRepository implements Partial<UserRepository> {

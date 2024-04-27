@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { IdNotFoundException } from 'src/utils/errors/id-not-found';
-import { MovieRepository } from './repository/movie.repository';
 import { Movie } from './entities/movie.entity';
-import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
-import { TitleMovieException } from 'src/utils/errors/title-movie-exists';
+import { CreateMovieDto } from './dto/create-movie.dto';
+import { MovieRepository } from './repository/movie.repository';
+import { IdNotFoundException } from '../utils/errors/id-not-found';
+import { TitleMovieException } from '../utils/errors/title-movie-exists';
 
 @Injectable()
 export class MovieService {

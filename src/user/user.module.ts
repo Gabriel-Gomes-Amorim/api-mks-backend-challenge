@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { UserService } from './user.service';
-import { UserController } from './user.controller';
-import TypeOrmUserRepository from './repository/typeorm/typeorm.user.repository';
-import { UserRepository } from './repository/user.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
-import { RedisService } from 'src/database/redis/redis';
+import { UserService } from './user.service';
+import { UserController } from './user.controller';
+import { RedisService } from '../database/redis/redis';
+import { UserRepository } from './repository/user.repository';
+import TypeOrmUserRepository from './repository/typeorm/typeorm.user.repository';
 import { RedisUserRepository } from './repository/redis/redis.user.repository';
 
 @Module({

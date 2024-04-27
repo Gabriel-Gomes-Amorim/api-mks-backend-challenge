@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { MovieService } from './movie.service';
-import { MovieController } from './movie.controller';
-import { Movie } from './entities/movie.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import TypeOrmMovieRepository from './repository/typeorm/typeorm.movie.repository';
-import { RedisService } from 'src/database/redis/redis';
-import { RedisMovieRepository } from './repository/redis/redis.movie.repository';
+import { MovieService } from './movie.service';
+import { Movie } from './entities/movie.entity';
+import { MovieController } from './movie.controller';
+import { RedisService } from '../database/redis/redis';
 import { MovieRepository } from './repository/movie.repository';
+import TypeOrmMovieRepository from './repository/typeorm/typeorm.movie.repository';
+import { RedisMovieRepository } from './repository/redis/redis.movie.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Movie])],

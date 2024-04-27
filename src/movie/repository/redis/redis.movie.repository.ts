@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { RedisService } from 'src/database/redis/redis';
+import { Movie } from '../../entities/movie.entity';
 import { MovieRepository } from '../movie.repository';
+import { RedisService } from '../../../database/redis/redis';
 import TypeOrmMovieRepository from '../typeorm/typeorm.movie.repository';
-import { Movie } from 'src/movie/entities/movie.entity';
 
 @Injectable()
 export class RedisMovieRepository implements MovieRepository {

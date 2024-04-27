@@ -6,12 +6,12 @@ import {
   UseGuards,
   Request,
 } from '@nestjs/common';
+import { ApiParam, ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
-import { LocalAuthGuard } from './guards/local-auth.guards';
+import { UserToken } from './models/UserToken';
 import { AuthRequest } from './models/AuthRequest';
 import { IsPublic } from './decorators/is-public.decorator';
-import { ApiParam, ApiTags } from '@nestjs/swagger';
-import { UserToken } from './models/UserToken';
+import { LocalAuthGuard } from './guards/local-auth.guards';
 
 @Controller()
 @ApiTags('Login')

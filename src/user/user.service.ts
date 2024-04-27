@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { UserRepository } from './repository/user.repository';
-import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
-import { EmailException } from 'src/utils/errors/email-exists';
-import { CpfException } from 'src/utils/errors/cpf-exists';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { IdNotFoundException } from 'src/utils/errors/id-not-found';
+import { CreateUserDto } from './dto/create-user.dto';
+import { CpfException } from '../utils/errors/cpf-exists';
+import { EmailException } from '../utils/errors/email-exists';
+import { UserRepository } from './repository/user.repository';
+import { IdNotFoundException } from '../utils/errors/id-not-found';
 
 @Injectable()
 export class UserService {
