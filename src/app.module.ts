@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from './database/database.providers';
 import { UserModule } from './user/user.module';
 import { RedisService } from './database/redis/redis';
+import { MovieModule } from './movie/movie.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { RedisService } from './database/redis/redis';
     }),
     TypeOrmModule.forRoot(dataSourceOptions),
     UserModule,
+    MovieModule,
   ],
   providers: [RedisService],
 })
