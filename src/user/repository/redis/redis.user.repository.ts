@@ -11,6 +11,16 @@ export class RedisUserRepository implements Partial<UserRepository> {
     private readonly typeormUserRepository: TypeOrmUserRepository,
   ) {}
 
+  create(
+    user: Omit<User, 'id' | 'createdAt' | 'updatedAt' | 'deletedAt'>,
+  ): Promise<User> {
+    return this.typeormUserRepository.create(user);
+  }
+
+  update(id: string, user: Partial<User>): Promise<User> {
+    return this.typeormUserRepository.update(id, user);
+  }
+
   async findAll(): Promise<User[] | null> {
     const cachedUsers: string = await this.redis.get('users');
 
@@ -92,5 +102,13 @@ export class RedisUserRepository implements Partial<UserRepository> {
     console.log('\x1b[36m%s\x1b[0m', 'User found in cache');
 
     return JSON.parse(cachedUser);
+  }
+
+  save(user: User): Promise<User> {
+    return this.typeormUserRepository.save(user);
+  }
+
+  delete(id: string): Promise<void> {
+    return this.typeormUserRepository.delete(id);
   }
 }
