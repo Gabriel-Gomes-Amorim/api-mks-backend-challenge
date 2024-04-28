@@ -138,3 +138,4 @@ npm run test
 ## Contato
 
 - Autor - [Gabriel Gomes](https://www.linkedin.com/in/gabriel-gomes-amorim)
+- Experiência: 3 anos de experiência como desenvolvedor backend com as tecnologias mencionadas.
