@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm install --save-dev @nestjs/cli
 
-RUN npm run build
+RUN chmod -R 777 dist && npm run build
 
 USER node
 
