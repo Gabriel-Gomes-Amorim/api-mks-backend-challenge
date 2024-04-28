@@ -10,7 +10,7 @@ services:
       dockerfile: Dockerfile
     command: sh -c "sleep 10 && npm run start:dev"
     ports:
-      - '${API_PORT}:3000'
+      - '${API_PORT}:3004'
     volumes:
       - .:/usr/app
     networks:
@@ -27,7 +27,7 @@ services:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
-      - '${DB_PORT}:5432'
+      - '${DB_PORT}:5435'
     networks:
       - mks_networks
 
