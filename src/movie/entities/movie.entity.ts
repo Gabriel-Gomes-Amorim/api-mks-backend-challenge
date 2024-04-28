@@ -13,7 +13,7 @@ export class Movie extends BaseEntity {
   gender: string;
 
   @Column({ name: 'release_year', nullable: false })
-  releaseYear: string;
+  releaseYear: number;
 
   @Column({ name: 'synopsis', nullable: false })
   synopsis: string;
