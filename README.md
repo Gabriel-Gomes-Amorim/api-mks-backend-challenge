@@ -31,49 +31,16 @@ Segurança Rate Limiting: Implementação de segurança Rate Limiting para preve
 
 Criptografia com Bcrypt: Utilização da criptografia com bcrypt para armazenar senhas de forma segura no banco de dados.
 
-# Iniciando
-
-```bash
- # Instalar Dependências
- npm install
-```
-
-```bash
- # Configurar .env de acordo com o .env.example
-```
-
-# Rodando Projeto
-
-```bash
-# Subir containers da api
- docker compose up -d
-```
-
-```bash
-# Entrar no container da api
- docker exec -it {id container api ou nome} sh
-```
-
-# Migrations
-
-```bash
-# gerar migrations
-npm run migration:generate -- src/database/migrations/{name-migration}
-
-# executar migrations
-npm run migration:run
-```
-
 # API Endpoints
 
 **API Usuários**
 
 ```markdown
-POST /user/create - Criar novo usuário
-GET /user - Retornar todos os usuários
-GET /user/{id} - Retornar um usuário
-PUT /user/user/{id} - Atualizar um usuário
-DELETE /user/delete/{id} - Deletar um usuário
+POST https://api-mks-backend-challenge-6.onrender.com/user/create - Criar novo usuário
+GET https://api-mks-backend-challenge-6.onrender.com/user - Retornar todos os usuários
+GET https://api-mks-backend-challenge-6.onrender.com/user/{id} - Retornar um usuário
+PUT https://api-mks-backend-challenge-6.onrender.com/user/user/{id} - Atualizar um usuário
+DELETE https://api-mks-backend-challenge-6.onrender.com/user/delete/{id} - Deletar um usuário
 ```
 
 **BODY**
@@ -90,7 +57,7 @@ DELETE /user/delete/{id} - Deletar um usuário
 **API Login**
 
 ```markdown
-POST /login
+POST https://api-mks-backend-challenge-6.onrender.com/login
 ```
 
 **BODY**
@@ -105,11 +72,11 @@ POST /login
 **API Filmes**
 
 ```markdown
-POST /movie/create - Criar novo filme
-GET /movie - Retornar todos os filmes
-GET /movie/{id} - Retornar um filme
-PUT /movie/movie/{id} - Atualizar um filme
-DELETE /movie/delete/{id} - Deletar um filme
+POST https://api-mks-backend-challenge-6.onrender.com/movie/create - Criar novo filme
+GET https://api-mks-backend-challenge-6.onrender.com/movie - Retornar todos os filmes
+GET https://api-mks-backend-challenge-6.onrender.com/movie/{id} - Retornar um filme
+PUT https://api-mks-backend-challenge-6.onrender.com/movie/movie/{id} - Atualizar um filme
+DELETE https://api-mks-backend-challenge-6.onrender.com/movie/delete/{id} - Deletar um filme
 ```
 
 **BODY**
@@ -126,7 +93,42 @@ DELETE /movie/delete/{id} - Deletar um filme
 
 # Documentação API
 
-Para Acessar a Documentação da API com Swagger acesse localhost:{port}/api
+Para Acessar a Documentação da API com Swagger acesse: (https://api-mks-backend-challenge-6.onrender.com/api)
+
+# Como Rodar o projeto:
+
+## Iniciando
+
+```bash
+ # Instalar Dependências
+ npm install
+```
+
+```bash
+ # Configurar .env de acordo com o .env.example
+```
+
+## Rodando Projeto
+
+```bash
+# Subir containers da api
+ docker compose up -d
+```
+
+```bash
+# Entrar no container da api
+ docker exec -it {id container api ou nome} sh
+```
+
+## Migrations
+
+```bash
+# gerar migrations
+npm run migration:generate -- src/database/migrations/{name-migration}
+
+# executar migrations
+npm run migration:run
+```
 
 # Test
 
