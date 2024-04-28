@@ -6,6 +6,7 @@ export class RedisService extends Redis {
   constructor() {
     super({
       host: process.env.REDIS_HOST || 'localhost',
+      port: parseInt(process.env.REDIS_PORT, 10) || 6379,
     });
     super.on('error', (err) => {
       console.log('Error on Redis');
