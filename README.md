@@ -31,18 +31,27 @@ Segurança Rate Limiting: Implementação de segurança Rate Limiting para preve
 
 Criptografia com Bcrypt: Utilização da criptografia com bcrypt para armazenar senhas de forma segura no banco de dados.
 
-# Instalação
+# Iniciando
 
 ```bash
+ # Instalar Dependências
  npm install
 ```
 
-<p>Configurar .env de acordo com o .env.example</p>
+```bash
+ # Configurar .env de acordo com o .env.example
+```
 
 # Rodando Projeto
 
 ```bash
+# Subir containers da api
  docker compose up -d
+```
+
+```bash
+# Entrar no container da api
+ docker exec -it {id container api ou nome} sh
 ```
 
 # Migrations
