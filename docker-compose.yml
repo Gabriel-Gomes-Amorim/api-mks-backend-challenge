@@ -36,7 +36,7 @@ services:
     container_name: redis
     restart: always
     ports:
-      - '6379:6379'
+      - '${REDIS_PORT}:6375'
     networks:
       - mks_networks
 
