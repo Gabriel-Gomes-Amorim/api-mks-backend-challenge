@@ -1,14 +1,14 @@
 FROM node:alpine
 
-WORKDIR /user/src/app
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install 
+
+RUN npm build 
 
 COPY . .
-
-RUN npm install --save-dev @nestjs/cli
-
-RUN chmod -R 777 dist && npm run build
-
-USER node
 
 EXPOSE 3000
 
