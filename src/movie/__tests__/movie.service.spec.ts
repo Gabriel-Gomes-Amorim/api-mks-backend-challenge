@@ -44,7 +44,7 @@ describe('MovieService', () => {
         title: 'Movie Title',
         director: 'Director Name',
         gender: 'Action',
-        releaseYear: '2022',
+        releaseYear: 2022,
         synopsis: 'Movie Synopsis',
       };
 
@@ -75,7 +75,7 @@ describe('MovieService', () => {
         title: 'Existing Movie',
         director: 'Director Name',
         gender: 'Action',
-        releaseYear: '2022',
+        releaseYear: 2022,
         synopsis: 'Movie Synopsis',
       };
 
@@ -100,7 +100,7 @@ describe('MovieService', () => {
           title: 'Movie 1',
           director: 'Director 1',
           gender: 'Action',
-          releaseYear: '2022',
+          releaseYear: 2022,
           synopsis: 'Synopsis 1',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -126,7 +126,7 @@ describe('MovieService', () => {
         title: 'Movie Title',
         director: 'Director Name',
         gender: 'Action',
-        releaseYear: '2022',
+        releaseYear: 2022,
         synopsis: 'Movie Synopsis',
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -164,7 +164,7 @@ describe('MovieService', () => {
         title: 'Updated Title',
         director: 'Director Name',
         gender: 'Action',
-        releaseYear: '2022',
+        releaseYear: 2022,
         synopsis: 'Movie Synopsis',
         createdAt: new Date(),
         updatedAt: new Date(),

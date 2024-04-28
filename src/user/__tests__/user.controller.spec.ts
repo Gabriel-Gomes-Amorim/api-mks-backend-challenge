@@ -31,54 +31,46 @@ describe('UserController', () => {
     expect(userController).toBeDefined();
   });
 
-  describe('create', () => {
-    it('should return user Entity in createUser', async () => {
-      const createUserDto = {
-        fullName: 'John Doe',
-        cpf: '12345678901',
-        email: 'john@example.com',
-        password: 'password123',
-      };
+  it('should return user Entity in createUser', async () => {
+    const createUserDto = {
+      fullName: 'John Doe',
+      cpf: '12345678901',
+      email: 'john@example.com',
+      password: 'password123',
+    };
 
-      const req = {} as Request;
-      const res = {
-        status: jest.fn().mockReturnThis(),
-        json: jest.fn(),
-      } as unknown as Response;
+    const req = {} as Request;
+    const res = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn(),
+    } as unknown as Response;
 
-      const user = await userController.create(createUserDto, res, req);
+    const user = await userController.create(createUserDto, res, req);
 
-      expect(res.status).toHaveBeenCalledWith(HttpStatus.CREATED);
-      expect(res.json).toHaveBeenCalledWith({
-        message: 'Usuário cadastrado com sucesso!',
-        user: user,
-      });
+    expect(res.status).toHaveBeenCalledWith(HttpStatus.CREATED);
+    expect(res.json).toHaveBeenCalledWith({
+      message: 'Usuário cadastrado com sucesso!',
+      user,
     });
   });
-  describe('update', () => {
-    it('should update a user by id', async () => {
-      const id = '90dcb9a0-eb6e-470e-b689-3c7120ca9f43';
-      const updateUserDto = {
-        fullName: 'Updated Name',
-      };
-      const req = {} as Request;
-      const res = {
-        status: jest.fn().mockReturnThis(),
-        json: jest.fn(),
-      } as unknown as Response;
 
-      const updateUser = await userController.update(
-        id,
-        updateUserDto,
-        res,
-        req,
-      );
+  it('should update a user by id', async () => {
+    const id = '90dcb9a0-eb6e-470e-b689-3c7120ca9f43';
+    const updateUserDto = {
+      fullName: 'Updated Name',
+    };
+    const req = {} as Request;
+    const res = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn(),
+    } as unknown as Response;
 
-      expect(res.status).toHaveBeenCalledWith(HttpStatus.OK);
-      expect(res.json).toHaveBeenCalledWith({
-        message: 'Usuário atualizado com sucesso!',
-        user: updateUser,
-      });
+    const updateUser = await userController.update(id, updateUserDto, res, req);
+
+    expect(res.status).toHaveBeenCalledWith(HttpStatus.OK);
+    expect(res.json).toHaveBeenCalledWith({
+      message: 'Usuário atualizado com sucesso!',
+      user: updateUser,
     });
   });
 });
