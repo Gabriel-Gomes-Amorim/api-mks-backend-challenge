@@ -1,22 +1,23 @@
 version: '3'
 
 services:
-  #nest:
-  #  container_name: api_nest_mks
-  #  env_file:
-  #    - .env
-  #  build:
-  #    context: .
-  #    dockerfile: Dockerfile
-  #  command: sh -c "sleep 10 && npm run start:dev"
-  #  ports:
-  #    - '${API_PORT}:3000'
-  #  volumes:
-  #    - .:/usr/app
-  #  networks:
-  #    - mks_networks
-  #  depends_on:
-  #    - postgres
+  nest:
+    container_name: api_nest_mks
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "sleep 10 && npm run start:dev"
+    ports:
+      - '${API_PORT}:3000'
+    volumes:
+      - .:/usr/app
+    networks:
+      - mks_networks
+    depends_on:
+      - postgres
+      - redis
 
   postgres:
     container_name: db_postgres_mks
@@ -36,6 +37,8 @@ services:
     restart: always
     ports:
       - '6379:6379'
+    networks:
+      - mks_networks
 
 networks:
   mks_networks:
