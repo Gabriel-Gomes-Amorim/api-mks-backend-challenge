@@ -15,6 +15,8 @@ async function bootstrap() {
     }),
   );
 
+  app.enableCors();
+
   // Config do swagger
   const config = new DocumentBuilder()
     .setTitle('api mks')
